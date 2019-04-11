@@ -6,9 +6,7 @@ import Controls from './Controls';
 describe('<Controls />', () => {
     it('should control close gate', () => {
         const closed = jest.fn();
-
         const {getByText} = render(<Controls toggleClosed={closed}/>);
-
         const closeGate = getByText(/close gate/i)
 
         fireEvent.click(closeGate)
@@ -23,7 +21,6 @@ describe('<Controls />', () => {
         }
 
         const {getByText} = render(<Controls {...controlProps} toggleClosed={open}/>);
-    
         const openGate = getByText(/open gate/i)
         
         fireEvent.click(openGate)
@@ -37,8 +34,8 @@ describe('<Controls />', () => {
             locked: false,
             closed: true
         }
-        const {getByText} = render(<Controls {...controlProps} toggleLocked={locked}/>);
         
+        const {getByText} = render(<Controls {...controlProps} toggleLocked={locked}/>);
         const lockGate = getByText(/lock gate/i)
         
         fireEvent.click(lockGate)
@@ -52,8 +49,8 @@ describe('<Controls />', () => {
            locked: true,
            closed: true
        }
+       
        const { getByText} =  render(<Controls {...controlProps} toggleLocked={unlocked} />)
-
        const unlockGate = getByText(/unlock gate/i)
 
        fireEvent.click(unlockGate)
